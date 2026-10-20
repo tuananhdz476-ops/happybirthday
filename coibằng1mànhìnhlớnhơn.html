@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ffb6c1, #ffe4e1, #87cefa);
+    background-size: 300% 300%;
+    animation: bgMove 12s infinite alternate;
+    transition: 1s;
+}
+
+@keyframes bgMove {
+    0% { background-position: left; }
+    100% { background-position: right; }
+}
+
+.card {
+    position: relative;
+    width: 420px;
+    padding: 35px;
+    background: rgba(255, 217, 230, 0.95); /* Nền màu hồng ngọt ngào */
+    border-radius: 25px; /* Giữ bo góc của tấm thiệp lớn */
+    backdrop-filter: blur(8px);
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    z-index: 5;
+    transition: 0.6s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.corner-photo {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+/* --- ĐỊNH DẠNG HÌNH ẢNH CỦA BẠN (ẢNH VUÔNG KHÔNG BO GÓC) --- */
+.avatar-photo {
+    width: 140px;         /* Bạn có thể tùy chỉnh tăng giảm kích thước ảnh tại đây */
+    height: 140px;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    margin-bottom: 15px;
+    animation: bounce 2s infinite; /* Giữ lại hiệu ứng nhún nhảy vui nhộn */
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+h1 {
+    color: #ff3b7d;
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.message {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #444;
+    margin-top: 20px;
+}
+
+button {
+    margin-top: 25px;
+    padding: 14px 35px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    background: #ff4081;
+    color: white;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+    background: #e91e63;
+}
+
+#secret {
+    display: none;
+    margin-top: 25px;
+    font-size: 18px;
+    color: #222;
+    animation: fade 1s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.music {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 30px;
+    background: white;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+.heart {
+    position: absolute;
+    font-size: 24px;
+    animation: heartFly linear forwards;
+}
+
+@keyframes heartFly {
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-120vh) scale(2);
+        opacity: 0;
+    }
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: -20px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to { transform: translateY(110vh) rotate(720deg); }
+}
+</style>
+</head>
+
+<body>
+
+<button class="music" onclick="toggleMusic()">
+    🎵 Bật nhạc
+</button>
+
+<audio id="music" loop>
+    <source src="https://files.catbox.moe/q4ntxx.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+    <!-- Ảnh gif nhỏ ở góc trên bên phải -->
+    <img src="https://cdn.phototourl.com/member/2026-10-20-1e98accb-774b-47e4-b3c5-b18e92746df9.png" class="corner-photo" alt="Ảnh góc thiệp">
+
+    <!-- THAY LINK ẢNH CỦA BẠN VÀO DÒNG SRC DƯỚI ĐÂY (ẢNH SẼ VUÔNG VÀ KHÔNG BO GÓC) -->
+    <img src="https://cdn.phototourl.com/member/2026-10-20-de2df033-d455-403e-b3c0-4cf65d856d9f.gif" class="avatar-photo" alt="Ảnh của tôi">
+
+    <h1>Happy Birthday</h1>
+    <div class="subtitle">Gửi đến người đặc biệt ❤️</div>
+    
+    <div class="message">
+        Chúc Oăn luôn vui vẻ, mạnh khỏe,<br>
+        mọi điều may mắn sẽ tới.<br>
+        Chúc tuổi mới thật nhiều tiếng cười,<br>
+        hạnh phúc và thành công.
+    </div>
+
+    <button onclick="surprise()">🎁 Bấm vào đây</button>
+
+    <div id="secret">
+        ❤️ Cảm ơn vì đã xuất hiện trong cuộc đời này.<br><br>
+        Mong rằng mọi điều ước hôm nay của Oăn sẽ thành sự thật nh.
+    </div>
+</div>
+
+<script>
+const music = document.getElementById("music");
+
+function toggleMusic() {
+    if (music.paused) {
+        music.play();
+        document.querySelector(".music").innerHTML = "⏸️ Tắt nhạc";
+    } else {
+        music.pause();
+        document.querySelector(".music").innerHTML = "🎵 Bật nhạc";
+    }
+}
+
+function surprise() {
+    document.getElementById("secret").style.display = "block";
+
+    if (music.paused) {
+        toggleMusic();
+    }
+
+    document.body.style.background = "url('https://i.pinimg.com/originals/ae/49/dd/ae49dd698e36f5c765dbab408559c537.gif') center center / cover no-repeat fixed";
+    document.body.style.position = "relative";
+
+    let overlay = document.createElement("div");
+    overlay.style.position = "fixed";
+    overlay.style.left = "0";
+    overlay.style.top = "0";
+    overlay.style.width = "100%";
+    overlay.style.height = "100%";
+    overlay.style.background = "rgba(0,0,0,.35)";
+    overlay.style.zIndex = "-1";
+    document.body.appendChild(overlay);
+
+    for (let i = 0; i < 120; i++) {
+        let c = document.createElement("div");
+        c.className = "confetti";
+        c.style.left = Math.random() * 100 + "vw";
+        c.style.background = ["#ff4d6d", "#ffd93d", "#6bcB77", "#4d96ff", "#c77dff"][Math.floor(Math.random() * 5)];
+        c.style.width = (5 + Math.random() * 8) + "px";
+        c.style.height = c.style.width;
+        c.style.animationDuration = (2 + Math.random() * 4) + "s";
+        document.body.appendChild(c);
+        setTimeout(() => { c.remove(); }, 7000);
+    }
+
+    for (let i = 0; i < 40; i++) {
+        setTimeout(createHeart, i * 120);
+    }
+}
+
+function createHeart() {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.bottom = "-30px";
+    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+    heart.style.fontSize = (20 + Math.random() * 30) + "px";
+    document.body.appendChild(heart);
+    setTimeout(() => { heart.remove(); }, 6000);
+}
+
+setInterval(() => {
+    let c = document.createElement("div");
+    c.className = "confetti";
+    c.style.left = Math.random() * 100 + "vw";
+    c.style.background = ["#ff4d6d", "#ffd93d", "#6bcB77", "#4d96ff", "#c77dff", "#ffffff"][Math.floor(Math.random() * 6)];
+    c.style.width = (5 + Math.random() * 10) + "px";
+    c.style.height = c.style.width;
+    c.style.animationDuration = (3 + Math.random() * 4) + "s";
+    document.body.appendChild(c);
+    setTimeout(() => { c.remove(); }, 8000);
+}, 200);
+</script>
+
+</body>
+</html>
